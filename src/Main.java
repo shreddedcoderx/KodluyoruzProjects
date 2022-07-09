@@ -2,40 +2,100 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner oku = new Scanner(System.in);
-        int sayi1,sayi2,sayi3;
-        int enkucuk = 0,orta= 0,buyuk= 0;
+        int day;
+        int month;
 
-        System.out.print("Birinci sayiyi giriniz : ");
-        sayi1 = oku.nextInt();
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ikinci sayiyi giriniz : ");
-        sayi2 = oku.nextInt();
+        System.out.print("Doğduğunuz ay: ");
+        month = scanner.nextInt();
 
-        System.out.print("Ucuncu sayiyi giriniz : ");
-        sayi3 = oku.nextInt();
+        System.out.print("Doğduğunuz gün: ");
+        day = scanner.nextInt();
 
-        if(sayi1 < sayi2 && sayi1 < sayi3)
-            enkucuk = sayi1;
-        if(sayi2 < sayi1 && sayi2 < sayi3)
-            enkucuk = sayi2;
-        if(sayi3 < sayi1 && sayi3 < sayi2)
-            enkucuk = sayi3;
+        String burc = "";
+        boolean isError = false;
 
-        if(sayi1 > sayi2 && sayi1 > sayi3)
-            buyuk = sayi1;
-        if(sayi2 > sayi1 && sayi2 > sayi3)
-            buyuk = sayi2;
-        if(sayi3 > sayi1 && sayi3 > sayi2)
-            buyuk = sayi3;
+        if(month == 1 && day >= 1 && day <= 31) {
+            if(day <= 21) {
+                burc = "Oğlak Burcu";
+            } else {
+                burc = "Kova Burcu";
+            }
+        } else if(month == 2 && day >= 1 && day <= 29) {
+            if (day <= 19) {
+                burc = "Kova Burcu";
+            } else {
+                burc = "Balık Burcu";
+            }
+        } else if(month == 3 && day >= 1 && day <= 31) {
+            if (day <= 20) {
+                burc = "Balık Burcu";
+            } else {
+                burc = "Koç Burcu";
+            }
+        } else if (month == 4 && day >= 1 && day <= 30) {
+            if (day <= 20) {
+                burc = "Koç Burcu";
+            } else {
+                burc = "Boğa Burcu";
+            }
+        } else if (month == 5 && day >= 1 && day <= 31) {
+            if (day <= 21) {
+                burc = "Boğa Burcu";
+            } else {
+                burc = "İkizler Burcu";
+            }
+        } else if (month == 6 && day >= 1 && day <= 30) {
+            if (day <= 22) {
+                burc = "İkizler Burcu";
+            } else {
+                burc = "Yengeç Burcu";
+            }
+        } else if (month == 7 && day >= 1 && day <= 31) {
+            if (day <= 22) {
+                burc = "Yengeç Burcu";
+            } else {
+                burc = "Aslan Burcu";
+            }
+        } else if (month == 8 && day >= 1 && day <= 31) {
+            if (day <= 22) {
+                burc = "Aslan Burcu";
+            } else {
+                burc = "Başak Burcu";
+            }
+        } else if (month == 9 && day >= 1 && day <= 30) {
+            if (day <= 22) {
+                burc = "Başak Burcu";
+            } else {
+                burc = "Terazi Burcu";
+            }
+        } else if (month == 10 && day >= 1 && day <= 31) {
+            if (day <= 22) {
+                burc = "Terazi Burcu";
+            } else {
+                burc = "Akrep Burcu";
+            }
+        } else if (month == 11 && day >= 1 && day <= 30) {
+            if (day <= 21) {
+                burc = "Akrep Burcu";
+            } else {
+                burc = "Yay Burcu";
+            }
+        } else if (month == 12 && day >= 1 && day <= 31) {
+            if (day <= 21) {
+                burc = "Yay Burcu";
+            } else {
+                burc = "Oğlak Burcu";
+            }
+        } else {
+            isError = true;
+        }
 
-        if(sayi1 != enkucuk && sayi1 != buyuk)
-            orta = sayi1;
-        if(sayi2 != enkucuk && sayi2 != buyuk)
-            orta = sayi2;
-        if(sayi3 != enkucuk && sayi3 != buyuk)
-            orta = sayi3;
-
-        System.out.print("Siralanan : " + enkucuk + " - " + orta + " - " + buyuk);
+        if(isError) {
+            System.out.println("Hatalı giriş yaptınız.");
+        } else {
+            System.out.println("Burcunuz: " + burc);
+        }
     }
 }
