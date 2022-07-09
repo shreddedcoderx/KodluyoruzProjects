@@ -35,11 +35,12 @@ public class Main {
                 if (n2 != 0){
                     sonuc = n1 / n2;
                     System.out.println("İşlemin sonucu : " + sonuc);
-                    break;
                 } else {
                     System.out.println("Bir sayı 0'a bölünemez.");
-                    break;
                 }
+                break;
+
+
             default:
                 System.out.println("Yanlış seçim yaptınız. Lütfen tekrar deneyiniz.");
 
