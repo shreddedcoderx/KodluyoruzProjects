@@ -2,17 +2,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        float mesafe;
-        double perKm= 2.20, sonuc;
-        int acilis = 10;
+
+        int r;
+        double pi = 3.14;
+        double alan, cevre, daireDilimAlani, aci;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Lütfen gideceğiniz KM'yi yazınız: " );
-        mesafe = scanner.nextFloat();
-        sonuc = (mesafe * perKm) + acilis;
+        System.out.println("Yarıçapı giriniz : ");
+        r = scanner.nextInt();
 
-        sonuc = sonuc < 20 ? 20 : sonuc;
+        System.out.println("Açıyı giriniz: ");
+        aci = scanner.nextDouble();
 
-        System.out.println("Ödeyeceğiniz Tutar : " + sonuc);
+//        alan = pi * r * r;
+//        cevre = 2 * pi * r;
+        daireDilimAlani = (pi * (r*r)*aci) / 360;
+
+        System.out.println(aci + " açılı daire diliminin alanı: " + daireDilimAlani);
+
     }
 }
