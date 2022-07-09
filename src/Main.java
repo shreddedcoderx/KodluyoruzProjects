@@ -2,37 +2,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int math, turkish, physics, chemistry, music, average, passGrade = 55;
+        Scanner input = new Scanner(System.in);
 
-        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Sıcaklık Değerini Giriniz: ");
+        int sicaklik = input.nextInt();
 
-        System.out.print("Enter your Math grade:");
-        math = keyboard.nextInt();
-        System.out.print("Enter your Turkish grade:");
-        turkish = keyboard.nextInt();
-        System.out.print("Enter your Physics grade:");
-        physics = keyboard.nextInt();
-        System.out.print("Enter your Chemistry grade:");
-        chemistry = keyboard.nextInt();
-        System.out.print("Enter your Music grade:");
-        music = keyboard.nextInt();
-        keyboard.close();
-
-        if(((math >=0 && math <=100) &&
-            (turkish >=0 && turkish <=100) &&
-            (physics >=0 && physics <=100) &&
-            (chemistry >=0 && chemistry <=100) &&
-            (music >=0 && music <=100))) {
-
-            average = (math + turkish + physics + chemistry + music) / 5;
-
-            if (average >= passGrade) {
-                System.out.println("Congrats! You pass the class. Your average: " + average);
-            } else {
-                System.out.println("Sorry! You couldn't pass the class. Your average: " + average);
-            }
+        System.out.println("Yapabileceğin Etkinlikler:");
+        if (sicaklik > 25) {
+            System.out.println("* Yüzme");
+        } else if (sicaklik >= 15) {
+            System.out.println("* Piknik");
+        } else if (sicaklik >= 10) {
+            System.out.println("* Piknik");
+            System.out.print("* Sinema");
+        } else if (sicaklik >= 5) {
+            System.out.println("* Sinema");
         } else {
-            System.out.println("Please type valid grade!");
+            System.out.println("* Kayak");
         }
     }
 }
