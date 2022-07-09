@@ -2,33 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int a, b;
-        double hipotenus, alan;
+        float mesafe;
+        double perKm= 2.20, sonuc;
 
-        System.out.println("Üçgenin A kenarını girin:");
         Scanner scanner = new Scanner(System.in);
-        a = scanner.nextInt();
+        System.out.println("Lütfen gideceğiniz KM'yi yazınız: " );
+        mesafe = scanner.nextFloat();
 
-        System.out.println("Üçgenin B kenarını girin:");
-        b = scanner.nextInt();
+        sonuc = (mesafe*perKm) + 10 <= 20 ? 20.0 : fiyatHesapla(mesafe, perKm);
 
-        hipotenus = hipotenusHesapla(a, b);
-        System.out.println("Hipotenüs : " + hipotenus);
-
-        alan = ucgenAlan(a, b, hipotenus);
-        System.out.println("Üçgenin alanı : " + alan);
-
-        scanner.close();
+        System.out.println("Ödeyeceğiniz Tutar : " + sonuc);
     }
 
-    private static double ucgenAlan(int a, int b, double hipotenus) {
-        double cevre = ( a + b + hipotenus) / 2;
+    private static double fiyatHesapla(float mesafe, double perKm) {
+        return 10 + (mesafe * perKm);
 
-        return Math.sqrt(cevre * (cevre - a) * (cevre - b) * (cevre - hipotenus));
-
-    }
-
-    private static double hipotenusHesapla(int a, int b) {
-        return Math.sqrt((a*a) + (b*b));
     }
 }
