@@ -1,18 +1,22 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        float mesafe;
-        double perKm= 2.20, sonuc;
-        int acilis = 10;
+
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        double boy, kilo;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Lütfen gideceğiniz KM'yi yazınız: " );
-        mesafe = scanner.nextFloat();
-        sonuc = (mesafe * perKm) + acilis;
+        System.out.println("Lütfen boyunuzu metre cinsinden giriniz; ");
+        boy = scanner.nextDouble();
 
-        sonuc = sonuc < 20 ? 20 : sonuc;
+        System.out.println("Lütfen kilonuzu kilogram cinsinden giriniz; ");
+        kilo = scanner.nextDouble();
 
-        System.out.println("Ödeyeceğiniz Tutar : " + sonuc);
+        double result = kilo / (boy * boy);
+
+        System.out.println("Vücut Kitle İndeksiniz : " + df.format(result));
     }
 }
