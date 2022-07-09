@@ -2,23 +2,40 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner oku = new Scanner(System.in);
+        int sayi1,sayi2,sayi3;
+        int enkucuk = 0,orta= 0,buyuk= 0;
 
-        System.out.print("Sıcaklık Değerini Giriniz: ");
-        int sicaklik = input.nextInt();
+        System.out.print("Birinci sayiyi giriniz : ");
+        sayi1 = oku.nextInt();
 
-        System.out.println("Yapabileceğin Etkinlikler:");
-        if (sicaklik > 25) {
-            System.out.println("* Yüzme");
-        } else if (sicaklik >= 15) {
-            System.out.println("* Piknik");
-        } else if (sicaklik >= 10) {
-            System.out.println("* Piknik");
-            System.out.print("* Sinema");
-        } else if (sicaklik >= 5) {
-            System.out.println("* Sinema");
-        } else {
-            System.out.println("* Kayak");
-        }
+        System.out.print("Ikinci sayiyi giriniz : ");
+        sayi2 = oku.nextInt();
+
+        System.out.print("Ucuncu sayiyi giriniz : ");
+        sayi3 = oku.nextInt();
+
+        if(sayi1 < sayi2 && sayi1 < sayi3)
+            enkucuk = sayi1;
+        if(sayi2 < sayi1 && sayi2 < sayi3)
+            enkucuk = sayi2;
+        if(sayi3 < sayi1 && sayi3 < sayi2)
+            enkucuk = sayi3;
+
+        if(sayi1 > sayi2 && sayi1 > sayi3)
+            buyuk = sayi1;
+        if(sayi2 > sayi1 && sayi2 > sayi3)
+            buyuk = sayi2;
+        if(sayi3 > sayi1 && sayi3 > sayi2)
+            buyuk = sayi3;
+
+        if(sayi1 != enkucuk && sayi1 != buyuk)
+            orta = sayi1;
+        if(sayi2 != enkucuk && sayi2 != buyuk)
+            orta = sayi2;
+        if(sayi3 != enkucuk && sayi3 != buyuk)
+            orta = sayi3;
+
+        System.out.print("Siralanan : " + enkucuk + " - " + orta + " - " + buyuk);
     }
 }
