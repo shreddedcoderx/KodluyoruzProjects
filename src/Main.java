@@ -9,7 +9,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Lütfen gideceğiniz KM'yi yazınız: " );
         mesafe = scanner.nextFloat();
-
         sonuc = (mesafe * perKm) + acilis;
 
         sonuc = sonuc < 20 ? 20 : sonuc;
