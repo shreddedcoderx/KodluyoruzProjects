@@ -2,40 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String userName, password, sifirlama, newPassword;
-        System.out.print("Kullanıcı Adınız: ");
-        userName = scan.nextLine();
-        System.out.print("Şifreniz: ");
-        password = scan.nextLine();
+        int math, turkish, physics, chemistry, music, average, passGrade = 55;
 
-        if (userName.equals("shreddedcoderx") && password.equals("coder1234")) {
-            System.out.print("Başarıyla giriş yaptınız.");
-        } else if (!(userName.equals("shreddedcoderx") && password.equalsIgnoreCase(""))) {
-            System.out.println("Kullanıcı adınız veya şifreniz hatalı.");
-            System.out.print("Şifrenizi sıfırlamak ister misiniz? (E/H):");
-            sifirlama = scan.nextLine();
-            if (sifirlama.equals("H")) {
-                System.out.print("Lütfen tekrar giriş yapmak için sayfayı yenileyiniz.");
-            } else if (sifirlama.equals("E")) {
-                System.out.print("Yeni şifrenizi giriniz: ");
-                newPassword = scan.nextLine();
+        Scanner keyboard = new Scanner(System.in);
 
-                while (newPassword.equals("coder1234") || newPassword.equals(password)) {
-                    System.out.print("Şifreniz oluşturulamadı. Farklı bir şifre ile tekrar deneyin: ");
-                    newPassword = scan.nextLine();
-                }
-                System.out.print("Şifreniz başarıyla oluşturuldu.\nYeniden Giriş yapabilirsiniz.\nKullanıcı Adınız: ");
-                userName = scan.nextLine();
-                System.out.print("Şifreniz: ");
-                password = scan.nextLine();
+        System.out.print("Enter your Math grade:");
+        math = keyboard.nextInt();
+        System.out.print("Enter your Turkish grade:");
+        turkish = keyboard.nextInt();
+        System.out.print("Enter your Physics grade:");
+        physics = keyboard.nextInt();
+        System.out.print("Enter your Chemistry grade:");
+        chemistry = keyboard.nextInt();
+        System.out.print("Enter your Music grade:");
+        music = keyboard.nextInt();
+        keyboard.close();
 
-                if (userName.equals("shreddedcoderx") && password.equals(newPassword)) {
-                    System.out.print("Başarıyla giriş yaptınız.");
-                } else {
-                    System.out.println("Kullanıcı adınız veya şifreniz hatalı.");
-                }
+        if(((math >=0 && math <=100) &&
+            (turkish >=0 && turkish <=100) &&
+            (physics >=0 && physics <=100) &&
+            (chemistry >=0 && chemistry <=100) &&
+            (music >=0 && music <=100))) {
+
+            average = (math + turkish + physics + chemistry + music) / 5;
+
+            if (average >= passGrade) {
+                System.out.println("Congrats! You pass the class. Your average: " + average);
+            } else {
+                System.out.println("Sorry! You couldn't pass the class. Your average: " + average);
             }
+        } else {
+            System.out.println("Please type valid grade!");
         }
     }
 }
