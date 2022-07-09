@@ -2,29 +2,40 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int mat, fizik, kimya, turkce, tarih, muzik;
+        Scanner scan = new Scanner(System.in);
+        String userName, password, sifirlama, newPassword;
+        System.out.print("Kullanıcı Adınız: ");
+        userName = scan.nextLine();
+        System.out.print("Şifreniz: ");
+        password = scan.nextLine();
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("Matematik: ");
-        mat = input.nextInt();
-        System.out.print("Fizik: ");
-        fizik = input.nextInt();
-        System.out.print("Kimya: ");
-        kimya = input.nextInt();
-        System.out.print("Turkce: ");
-        turkce = input.nextInt();
-        System.out.print("Tarih: ");
-        tarih = input.nextInt();
-        System.out.print("Müzik: ");
-        muzik = input.nextInt();
+        if (userName.equals("shreddedcoderx") && password.equals("coder1234")) {
+            System.out.print("Başarıyla giriş yaptınız.");
+        } else if (!(userName.equals("shreddedcoderx") && password.equalsIgnoreCase(""))) {
+            System.out.println("Kullanıcı adınız veya şifreniz hatalı.");
+            System.out.print("Şifrenizi sıfırlamak ister misiniz? (E/H):");
+            sifirlama = scan.nextLine();
+            if (sifirlama.equals("H")) {
+                System.out.print("Lütfen tekrar giriş yapmak için sayfayı yenileyiniz.");
+            } else if (sifirlama.equals("E")) {
+                System.out.print("Yeni şifrenizi giriniz: ");
+                newPassword = scan.nextLine();
 
-        int result = ortalama(mat, fizik, kimya, turkce, tarih, muzik);
+                while (newPassword.equals("coder1234") || newPassword.equals(password)) {
+                    System.out.print("Şifreniz oluşturulamadı. Farklı bir şifre ile tekrar deneyin: ");
+                    newPassword = scan.nextLine();
+                }
+                System.out.print("Şifreniz başarıyla oluşturuldu.\nYeniden Giriş yapabilirsiniz.\nKullanıcı Adınız: ");
+                userName = scan.nextLine();
+                System.out.print("Şifreniz: ");
+                password = scan.nextLine();
 
-        System.out.println(result > 60 ? "Geçtiniz" : "Kaldınız");
-    }
-
-    private static int ortalama(int mat, int fizik, int kimya, int turkce, int tarih, int muzik) {
-        int toplam = mat + fizik + kimya + turkce + tarih + muzik;
-        return toplam / 6;
+                if (userName.equals("shreddedcoderx") && password.equals(newPassword)) {
+                    System.out.print("Başarıyla giriş yaptınız.");
+                } else {
+                    System.out.println("Kullanıcı adınız veya şifreniz hatalı.");
+                }
+            }
+        }
     }
 }
